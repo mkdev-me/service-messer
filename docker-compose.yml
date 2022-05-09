@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Containerfile
+    container_name: app
+    command: bash -c "bundle exec ruby app.rb -o 0.0.0.0"
+    ports:
+      - 4567:4567
