@@ -25,4 +25,4 @@ spec:
     condition:
       pathRegex: '/coin-flipper'
       method: GET
-    isRetryable: true
+   # isRetryable: true
