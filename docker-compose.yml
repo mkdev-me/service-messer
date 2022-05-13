@@ -5,6 +5,19 @@ services:
       context: .
       dockerfile: Containerfile
     container_name: app
+    environment:
+      DB_URL: postgres://postgres@db/service_messer
     command: bash -c "bundle exec ruby app.rb -o 0.0.0.0"
     ports:
       - 4567:4567
+    volumes:
+      - ./:/app
+  db:
+    image: postgres
+    container_name: db
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+      POSTGRES_DB: service_messer

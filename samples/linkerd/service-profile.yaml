@@ -1,0 +1,28 @@
+apiVersion: linkerd.io/v1alpha2
+kind: ServiceProfile
+metadata:
+  name: service-messer.kirill.svc.cluster.local
+  namespace: mkdev
+spec:
+  routes:
+  - name: '/ping'
+    condition:
+      pathRegex: '/ping'
+      method: GET
+    isRetryable: true
+
+  - name: '/messages'
+    condition:
+      pathRegex: '/messages'
+      method: GET
+
+  - name: '/add-message'
+    condition:
+      pathRegex: '/add-message/.*'
+      method: GET
+
+  - name: '/coin-flipper'
+    condition:
+      pathRegex: '/coin-flipper'
+      method: GET
+    isRetryable: true

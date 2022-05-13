@@ -5,7 +5,7 @@ ADD ./ /app
 WORKDIR /app
 
 RUN apt-get update && \
-    apt install ruby-dev build-essential -y && \
+    apt install ruby-dev build-essential libpq-dev -y && \
     bundle install && \
     apt-get clean autoclean && \
     apt-get autoremove -y && \
