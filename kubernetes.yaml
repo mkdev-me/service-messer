@@ -40,6 +40,9 @@ spec:
         env:
           - name: DB_URL
             value: "postgres://postgres:test1234@postgresql.cg6svef5t0r3.eu-central-1.rds.amazonaws.com/service_messer"
+        ports:
+        - containerPort: 4567
+          protocol: TCP
       serviceAccount: service-messer
       serviceAccountName: service-messer
 ---
