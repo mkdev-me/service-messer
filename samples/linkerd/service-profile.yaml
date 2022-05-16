@@ -1,7 +1,7 @@
 apiVersion: linkerd.io/v1alpha2
 kind: ServiceProfile
 metadata:
-  name: service-messer.kirill.svc.cluster.local
+  name: service-messer.mkdev.svc.cluster.local
   namespace: mkdev
 spec:
   routes:
