@@ -1,0 +1,29 @@
+apiVersion: policy.linkerd.io/v1beta1
+kind: ServerAuthorization
+metadata:
+  name: allow-default-to-service-messer
+  namespace: mkdev
+spec:
+  server:
+    name: service-messer
+  client:
+    meshTLS:
+      serviceAccounts:
+        - name: default
+
+---
+
+apiVersion: policy.linkerd.io/v1beta1
+kind: ServerAuthorization
+metadata:
+  name: allow-alb-to-service-messer
+  namespace: mkdev
+spec:
+  server:
+    name: service-messer
+  client:
+    networks:
+      - cidr: 10.0.101.0/24
+      - cidr: 10.0.102.0/24
+      - cidr: 10.0.103.0/24
+    unauthenticated: true

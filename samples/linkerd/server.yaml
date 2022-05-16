@@ -1,0 +1,13 @@
+apiVersion: policy.linkerd.io/v1beta1
+kind: Server
+metadata:
+  namespace: mkdev
+  name: service-messer
+  labels:
+    app: service-messer
+spec:
+  podSelector:
+    matchLabels:
+      app: service-messer
+  port: 4567
+  proxyProtocol: HTTP/1
