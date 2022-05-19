@@ -8,6 +8,10 @@ unless ENV["DB_URL"].nil?
   DB = Sequel.connect(ENV["DB_URL"])
 end
 
+get '/' do
+  "Welcome to Service Messer."
+end
+
 get '/coin-flipper' do
   code = rand(200..599)
   status code
